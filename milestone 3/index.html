@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList</title>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <img class="logo" src="https://www.boolean.careers/images/misc/logo.png" alt="">
+    </header>
+
+    <main>
+        <div id="root">
+            <div class="search">
+                <div>
+                    <input @keyup.enter="addTodo" type="text" placeholder="Scrivi un promemoria">
+                    <button @click="addTodo">Aggiungi</button>
+                </div>
+            </div>
+    
+            <div class="todos">
+                <ul v-for="(element, index) in todoArray">
+                    <li v-bind:class="{ line: element.done }"> {{ element.testo }} 
+                        <div class="todo-cross">
+                            <i @click="deleteTodo(index)" class="fas fa-times"></i>
+                        </div>                      
+                     </li>
+    
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
